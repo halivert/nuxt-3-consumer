@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[v-cloak] {
+  display: none !important;
+}
+
+html {
+  font-size: 20px;
+}
+
+html,
+body,
+#main {
+  @apply w-full h-screen;
+}
+
+#main {
+  @apply overflow-scroll flex flex-col font-body;
+}
+
+.router-link-active > span {
+  @apply -translate-y-1/4;
+}
+
+.router-link-exact-active > span {
+  @apply translate-y-0;
+}
+
+.router-link-exact-active:hover > span {
+  @apply bg-primary-500;
+}
+
+*::selection {
+  @apply bg-primary-900 text-white;
+}
+
+.story-card {
+  @apply flow-root my-3 py-3 px-5 rounded bg-primary-100;
+}
+
+.story-card img {
+  @apply max-h-40 w-auto;
+  shape-outside: var(--url, circle(50%));
+  transform: translateX(calc(var(--right, -1) * 0.5rem));
+}
+
+.story-card img:nth-of-type(odd) {
+  @apply float-left;
+}
+
+.story-card img:nth-of-type(even) {
+  --right: 1;
+  @apply float-right;
+}
